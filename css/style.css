@@ -663,7 +663,7 @@ h3.my-profession{
 .portfolio .portfolio-item{
     flex: 0 0 33.33%;
     max-width: 33.33%;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .portfolio .portfolio-item-inner{
@@ -676,6 +676,12 @@ h3.my-profession{
 .portfolio .portfolio-item-inner .portfolio-img img{
     width: 100%;
     display: block;
+} 
+
+.portfolio .portfolio-item-inner:hover{
+    border: 10px solid var(--bg-black-100);
+    transition: all 0.2s ease;
+
 }
 
 /* Contact */
