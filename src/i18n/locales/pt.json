@@ -86,6 +86,8 @@
   "skills": {
     "title": "Capacidades",
     "hint": "// stack full-stack — aperte as teclas",
+    "filterLabel": "Filtrar por categoria",
+    "filters": { "all": "todas" },
     "services": { "frontend": "Front End", "backend": "Back End", "design": "Design", "office": "Pacote Office", "hardware": "Hardware", "network": "Redes" },
     "levels": ["aprendendo", "básico", "confortável", "uso diário"],
     "cats": { "front": "front", "back": "back", "data": "data", "infra": "infra" }

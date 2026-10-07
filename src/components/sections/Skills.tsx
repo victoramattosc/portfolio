@@ -1,14 +1,28 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaKeyboard } from 'react-icons/fa6';
-import { services, skills, type SkillLevel } from '@/data/skills';
+import { useSettings } from '@/context/SettingsContext';
+import { services, skills, type SkillCategory, type SkillLevel } from '@/data/skills';
+import { burst } from '@/lib/particles';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 
 const PIPS: SkillLevel[] = [1, 2, 3, 4];
+const FILTERS: (SkillCategory | 'all')[] = ['all', 'front', 'back', 'data', 'infra'];
 
 export function Skills() {
   const { t } = useTranslation();
+  const { fx } = useSettings();
+  const [filter, setFilter] = useState<SkillCategory | 'all'>('all');
   const levels = t('skills.levels', { returnObjects: true }) as string[];
+  const visible = filter === 'all' ? skills : skills.filter((s) => s.cat === filter);
+  const count = (f: SkillCategory | 'all') => (f === 'all' ? skills.length : skills.filter((s) => s.cat === f).length);
+
+  const sparks = (e: React.PointerEvent | React.KeyboardEvent) => {
+    if (!fx) return;
+    if (!('clientX' in e) && e.key !== 'Enter' && e.key !== ' ') return;
+    burst(e.currentTarget);
+  };
 
   return (
     <section id="capacidades" className="mx-auto max-w-[1320px] px-[clamp(20px,4vw,48px)] pt-[clamp(100px,14vw,180px)]">
@@ -30,23 +44,42 @@ export function Skills() {
       </ul>
 
       <div className="mt-[clamp(56px,8vw,96px)]">
-        <Reveal className="mb-6 flex items-center gap-3 font-mono text-[13px] text-mute">
-          <FaKeyboard className="text-acc" />
-          {t('skills.hint')}
+        <Reveal className="mb-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
+          <div className="flex items-center gap-3 font-mono text-[13px] text-mute">
+            <FaKeyboard className="text-acc" />
+            {t('skills.hint')}
+          </div>
+          <div role="group" aria-label={t('skills.filterLabel')} className="flex flex-wrap gap-1.5">
+            {FILTERS.map((f) => (
+              <button
+                key={f}
+                type="button"
+                aria-pressed={f === filter}
+                onClick={() => setFilter(f)}
+                className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-xs transition-colors ${f === filter ? 'border-acc bg-acc text-ink' : 'border-line text-mute hover:border-mute hover:text-fg'}`}
+              >
+                {f === 'all' ? t('skills.filters.all') : t(`skills.cats.${f}`)}
+                <span className="opacity-60">{count(f)}</span>
+              </button>
+            ))}
+          </div>
         </Reveal>
+
         <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-3 sm:grid-cols-[repeat(auto-fill,minmax(170px,1fr))] sm:gap-3.5">
-          {skills.map((s, i) => (
+          {visible.map((s, i) => (
             <Reveal
               as="button"
               type="button"
               key={s.name}
               index={i % 9}
               data-tilt=""
-              className="flex flex-col gap-4 rounded-[14px] border border-b-[6px] border-line bg-bg2 px-4 pt-4 pb-4 sm:gap-[18px] sm:px-5 sm:pt-5 sm:pb-[18px] text-left transition-[border-color,translate,border-bottom-width] duration-150 hover:border-acc active:translate-y-1 active:border-b-2"
+              onPointerDown={sparks}
+              onKeyDown={sparks}
+              className="flex flex-col gap-4 rounded-[14px] border border-b-[6px] border-line bg-bg2 px-4 pt-4 pb-4 text-left transition-[border-color,translate,border-bottom-width] duration-150 hover:border-acc active:translate-y-1 active:border-b-2 sm:gap-[18px] sm:px-5 sm:pt-5 sm:pb-[18px]"
             >
               <span className="flex flex-col gap-1">
                 <span className="font-mono text-[11px] text-acc">{t(`skills.cats.${s.cat}`)}</span>
-                <span className="text-[21px] leading-[1.05] sm:text-[26px] font-bold tracking-[-0.03em]">{s.name}</span>
+                <span className="text-[21px] leading-[1.05] font-bold tracking-[-0.03em] sm:text-[26px]">{s.name}</span>
               </span>
               <span className="flex flex-col gap-2">
                 <span className="flex gap-1" aria-hidden>

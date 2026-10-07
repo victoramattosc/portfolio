@@ -86,6 +86,8 @@
   "skills": {
     "title": "Capabilities",
     "hint": "// full-stack toolkit — press the keys",
+    "filterLabel": "Filter by category",
+    "filters": { "all": "all" },
     "services": { "frontend": "Front End", "backend": "Back End", "design": "Design", "office": "Office Suite", "hardware": "Hardware", "network": "Networking" },
     "levels": ["learning", "basic", "comfortable", "daily use"],
     "cats": { "front": "front", "back": "back", "data": "data", "infra": "infra" }

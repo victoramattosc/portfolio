@@ -1,8 +1,13 @@
 import type { IconType } from 'react-icons';
+import type { Lang } from '@/i18n';
 import { FaEnvelope, FaGithub, FaLinkedin, FaTelegram } from 'react-icons/fa6';
 
 export const EMAIL = 'victorcarbelotti0306@gmail.com';
-export const RESUME_URL = '/Curriculo-Victor-Carbelotti.pdf';
+/** Currículo em português / resume em inglês, conforme o idioma do site. */
+export const RESUME_FILES: Record<Lang, string> = {
+  pt: '/Curriculo-Victor-Carbelotti.pdf',
+  en: '/Resume-Victor-Carbelotti.pdf',
+};
 export const BIRTH = { year: 2005, month: 6, day: 3 };
 
 export const socials: { name: string; handle: string; url: string; icon: IconType }[] = [

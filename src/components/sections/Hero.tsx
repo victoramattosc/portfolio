@@ -3,7 +3,7 @@ import { FaArrowDown, FaArrowDownLong, FaCode, FaFileArrowDown, FaGamepad, FaPen
 import eu from '@/assets/brand/eu.webp';
 import { useSettings } from '@/context/SettingsContext';
 import { projects } from '@/data/projects';
-import { RESUME_URL } from '@/data/profile';
+import { useResume } from '@/hooks/useResume';
 import { scrollToSection } from '@/data/sections';
 import { useCycle } from '@/hooks/useCycle';
 import { Logo } from '@/components/ui/Logo';
@@ -16,6 +16,7 @@ const MONO_ICON_BOX = 'grid place-items-center';
 export function Hero() {
   const { t } = useTranslation();
   const { fx, toggleFx } = useSettings();
+  const resume = useResume();
   const roles = t('hero.roles', { returnObjects: true }) as string[];
   const role = useCycle(roles.length, 2600);
 
@@ -106,7 +107,7 @@ export function Hero() {
             {t('hero.seeProjects')}
             <FaArrowDown />
           </PillButton>
-          <PillLink variant="outline" href={RESUME_URL} download>
+          <PillLink variant="outline" {...resume}>
             {t('hero.resume')}
             <FaFileArrowDown />
           </PillLink>

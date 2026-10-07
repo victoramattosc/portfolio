@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { FaArrowRight, FaCodeBranch, FaCodeCommit, FaFileCode, FaQuoteLeft } from 'react-icons/fa6';
-import { EMAIL, RESUME_URL, getAge } from '@/data/profile';
+import { EMAIL, getAge } from '@/data/profile';
+import { useResume } from '@/hooks/useResume';
 import { PillLink } from '@/components/ui/Pill';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeader } from '@/components/ui/SectionHeader';
@@ -14,6 +15,7 @@ const ITEM_TITLE = 'text-[clamp(19px,1.7vw,23px)] font-semibold tracking-[-0.01e
 
 export function About() {
   const { t } = useTranslation();
+  const resume = useResume();
   const education = t('about.education', { returnObjects: true }) as EducationItem[];
   const experience = t('about.experience', { returnObjects: true }) as ExperienceItem[];
 
@@ -31,7 +33,7 @@ export function About() {
             <span className="text-[clamp(20px,2vw,26px)] leading-[1.35] font-light text-mute italic">{t('about.quote')}</span>
           </Reveal>
           <Reveal index={3} className="self-start">
-            <PillLink href={RESUME_URL} download className="px-6 py-[15px]">
+            <PillLink {...resume} className="px-6 py-[15px]">
               {t('about.resume')}
               <FaArrowRight />
             </PillLink>
