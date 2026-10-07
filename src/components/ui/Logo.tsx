@@ -6,5 +6,5 @@ import logoLight from '@/assets/brand/logo.webp';
 export function Logo({ className, inverted = false }: { className?: string; inverted?: boolean }) {
   const { theme } = useSettings();
   const light = (theme === 'light') !== inverted;
-  return <img src={light ? logoLight : logoDark} alt="" width={240} height={240} className={className} />;
+  return <img src={light ? logoLight : logoDark} alt="" width={240} height={240} className={`shrink-0 object-contain ${className ?? ''}`} />;
 }

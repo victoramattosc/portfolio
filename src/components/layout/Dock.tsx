@@ -33,8 +33,8 @@ export function Dock({ onOpenPalette, onOpenMenu }: { onOpenPalette: () => void;
       className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 z-50 flex max-w-[calc(100vw-20px)] -translate-x-1/2 items-center gap-1 rounded-2xl border border-line bg-[color-mix(in_oklch,var(--bg2)_82%,transparent)] p-1.5 font-mono text-xs shadow-[0_20px_50px_-20px_rgba(0,0,0,.5)] backdrop-blur-xl"
     >
       <span ref={bar} aria-hidden className="absolute -top-px left-3 h-0.5 w-0 max-w-[calc(100%-24px)] rounded-xs bg-acc" />
-      <button type="button" onClick={() => scrollToSection('inicio')} title="Victor Carbelotti" aria-label="Victor Carbelotti" className="px-1.5 py-0.5 leading-[0]">
-        <Logo className="block size-[34px]" />
+      <button type="button" onClick={() => scrollToSection('inicio')} title="Victor Carbelotti" aria-label="Victor Carbelotti" className="shrink-0 px-1.5 py-0.5 leading-[0]">
+        <Logo className="block size-[34px] shrink-0 object-contain" />
       </button>
       <Divider />
 
