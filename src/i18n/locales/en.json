@@ -1,0 +1,142 @@
+{
+  "meta": { "title": "Victor Carbelotti — Full-stack Dev" },
+  "nav": {
+    "tabs": { "home": "home", "about": "about", "skills": "skills", "projects": "portfolio", "contact": "contact" },
+    "names": { "home": "Home", "about": "About me", "skills": "Capabilities", "projects": "Portfolio", "contact": "Contact" }
+  },
+  "hero": {
+    "available": "available for freelance",
+    "photoFile": "me.jpg",
+    "hi": "// hi, my name is",
+    "roles": ["Full-stack Dev", "Programmer", "Designer", "IT Technician"],
+    "welcome": "Welcome to my portfolio! Feel free to personalize and customize the site to your own taste.",
+    "seeProjects": "see projects",
+    "resume": "download resume",
+    "fxOn": "turn FX on",
+    "fxOff": "turn FX off",
+    "terminal": {
+      "fonts": "loading fonts…",
+      "creativity": "creativity",
+      "projects": "{{count}} projects found",
+      "done": "build complete"
+    }
+  },
+  "about": {
+    "title": "About me",
+    "intro": "My name is Victor Augusto de Mattos Carbelotti. I've always been into technology and programming, and for the past four years I've been on a learning journey.",
+    "quote": "Just an ordinary man trying to be extraordinary.",
+    "resume": "Check my resume",
+    "profile": {
+      "file": "profile.json",
+      "born": "born",
+      "age": "age",
+      "education": "education",
+      "educationValue": "Computer Science · Unisagrado",
+      "city": "city"
+    },
+    "gitEducation": "education",
+    "gitExperience": "experience",
+    "education": [
+      { "date": "2024 — 2027", "title": "BSc in Computer Science", "text": "Unisagrado" },
+      { "date": "2021 — 2023", "title": "Systems Development Technician", "text": "Etec Cidade do Livro" },
+      { "date": "2020 — 2021", "title": "Computer & Phone Repair", "text": "CEBRAC" },
+      { "date": "2017 — 2021", "title": "English · Advanced", "text": "CEBRAC" },
+      { "date": "2017 — 2018", "title": "Computing", "text": "CEBRAC" }
+    ],
+    "experience": [
+      {
+        "date": "11/2024 — present",
+        "title": "Developer Jr. II",
+        "org": "Myog · Botdoc",
+        "points": [
+          "Led deploys and critical deliveries, keeping releases stable.",
+          "Migrated modules from a monolith to microservices.",
+          "Built integrations with automotive CRMs.",
+          "Implemented digital wallets and validation/credit flows.",
+          "Optimized endpoints and fixed recurring production issues.",
+          "Frontend development, internal flowcharts and collaboration with international teams in English."
+        ]
+      },
+      {
+        "date": "present",
+        "title": "IT & Infrastructure Technician",
+        "org": "InnovaTech",
+        "points": [
+          "Network infrastructure implementation and administration.",
+          "Secure WireGuard VPN between MikroTik environments.",
+          "Firewall, routing, scripting and failover management.",
+          "Corrective and preventive hardware and software maintenance.",
+          "On-site and remote support with full ownership of solutions."
+        ]
+      },
+      {
+        "date": "01/2024 — 11/2024",
+        "title": "IT Support Technician",
+        "org": "Ferragens São Carlos",
+        "points": [
+          "Support and maintenance for computers, printers and network.",
+          "Structured and standardized IT infrastructure.",
+          "Built an internal page with dashboards and metrics.",
+          "User support in an RDP environment.",
+          "Supported the e-commerce team with product management."
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Capabilities",
+    "hint": "// full-stack toolkit — press the keys",
+    "services": { "frontend": "Front End", "backend": "Back End", "design": "Design", "office": "Office Suite", "hardware": "Hardware", "network": "Networking" },
+    "levels": ["learning", "basic", "comfortable", "daily use"],
+    "cats": { "front": "front", "back": "back", "data": "data", "infra": "infra" }
+  },
+  "projects": {
+    "title": "Portfolio",
+    "latest": "My latest projects :",
+    "openSite": "open site",
+    "open": "open ↗",
+    "noDeploy": "no public deploy",
+    "noDeployHost": "no public deploy",
+    "items": {
+      "semFiltro": { "type": "site", "desc": "Unisagrado × Politize! outreach project that explains how Brazilian politics works and helps people spot fake news." },
+      "innovatech": { "type": "site", "desc": "InnovaTech company site: IT services, support, projects, software and plans. From hardware to code." },
+      "eventPhotos": { "type": "web app", "desc": "Party photo app with a 35mm film look. Admin creates an event and gets a QR code with a unique token; guests scan it, get cookie-authenticated and use a camera + gallery that uploads to Supabase Storage." },
+      "escritorIA": { "type": "SaaS", "desc": "Editorial-assistant SaaS for fiction writers. AI analyzes chapters, suggests and simulates reader profiles without rewriting the author's text. Credit-based plans, embeddings and payments." },
+      "cityCare": { "type": "mobile", "desc": "Citizen app to open and track city issues: JWT login, map with Google Places autocomplete, image uploads and real-time updates over WebSocket." },
+      "movieDB": { "type": "web app", "desc": "Offline-first movie manager: CRUD with star ratings, reactive local DB with RxDB and real-time sync with a Django backend over WebSocket." },
+      "pokedex": { "type": "web app", "desc": "Angular Pokédex pulling data straight from a public API." },
+      "pruChurras": { "type": "app", "desc": "Tab-based web app, deployed on Vercel." },
+      "fightingGame": { "type": "game", "desc": "2-player 2D fighting game running in the browser." }
+    }
+  },
+  "contact": {
+    "line1": "Get in",
+    "line2": "touch",
+    "social": "Here are some of my social networks",
+    "service": "AT YOUR SERVICE",
+    "copy": "copy",
+    "copied": "copied!"
+  },
+  "settings": {
+    "menu": "Menu",
+    "fxHint": "effects, animations and cursor",
+    "theme": "theme",
+    "language": "Language",
+    "color": "Theme color",
+    "colors": { "lavanda": "Lavender", "salvia": "Sage", "argila": "Clay" }
+  },
+  "palette": {
+    "placeholder": "search section or action…",
+    "empty": "nothing found",
+    "goTo": "go to",
+    "actions": "actions",
+    "fxOn": "Turn FX on",
+    "fxOff": "Turn FX off",
+    "lightTheme": "Light theme",
+    "darkTheme": "Dark theme",
+    "color": "Color: {{name}}",
+    "switchLang": "Mudar para Português",
+    "copyEmail": "Copy e-mail"
+  },
+  "fx": { "on": "> FX mode on", "off": "> FX mode off", "desktopHint": "(best on desktop)", "label": "FX" }
+}

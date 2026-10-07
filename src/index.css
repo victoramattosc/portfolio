@@ -1,0 +1,141 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-sans: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --color-bg: var(--bg);
+  --color-bg2: var(--bg2);
+  --color-bg3: var(--bg3);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-mute: var(--mute);
+  --color-acc: var(--acc);
+  --color-acc2: var(--acc2);
+  --color-ink: var(--ink);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Design tokens: matiz (cor) × tema (claro/escuro) ---------- */
+:root {
+  --h: 295;
+  --h2: calc(var(--h) + 60);
+}
+[data-color='salvia'] { --h: 165; }
+[data-color='argila'] { --h: 45; }
+
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: oklch(0.165 0.012 var(--h));
+  --bg2: oklch(0.2 0.014 var(--h));
+  --bg3: oklch(0.25 0.016 var(--h));
+  --line: oklch(0.31 0.018 var(--h));
+  --fg: oklch(0.95 0.008 var(--h));
+  --mute: oklch(0.74 0.025 var(--h));
+  --acc: oklch(0.74 0.09 var(--h));
+  --acc2: oklch(0.8 0.08 var(--h2));
+  --ink: oklch(0.17 0.02 var(--h));
+}
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: oklch(0.965 0.007 var(--h));
+  --bg2: oklch(0.99 0.004 var(--h));
+  --bg3: oklch(0.93 0.01 var(--h));
+  --line: oklch(0.86 0.014 var(--h));
+  --fg: oklch(0.2 0.02 var(--h));
+  --mute: oklch(0.45 0.03 var(--h));
+  --acc: oklch(0.5 0.11 var(--h));
+  --acc2: oklch(0.5 0.1 var(--h2));
+  --ink: oklch(0.985 0.005 var(--h));
+}
+
+/* ---------- Base (em @layer para que as utilities do Tailwind vençam) ---------- */
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    transition: background 0.5s, color 0.5s;
+  }
+  a { color: inherit; text-decoration: none; }
+  html { -webkit-tap-highlight-color: transparent; }
+  button { cursor: pointer; font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; border-radius: 4px; }
+}
+
+/* ---------- Reveal on scroll (animado via Web Animations em useReveal) ---------- */
+[data-reveal]:not([data-revealed]) { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal]:not([data-revealed]) { opacity: 1; }
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- Hero: entrada ---------- */
+@keyframes hero-in { from { opacity: 0; transform: translateY(16px); } }
+@keyframes hero-in-fx { from { opacity: 0; transform: translateY(40px) scale(0.96); filter: blur(10px); } }
+@keyframes hero-big { from { transform: translateY(105%) skewY(6deg); } }
+@keyframes type-line { from { clip-path: inset(0 100% 0 0); } }
+.hero-in { animation: hero-in 0.7s ease-out backwards; animation-delay: calc(var(--i, 0) * 70ms); }
+[data-fx='on'] .hero-in { animation: hero-in-fx 0.95s var(--ease-out-expo) backwards; animation-delay: calc(350ms + var(--i, 0) * 160ms); }
+[data-fx='on'] .hero-big { animation: hero-big 1.2s var(--ease-out-expo) backwards; animation-delay: calc(350ms + var(--i, 0) * 160ms); }
+[data-fx='on'] .hero-line { animation: type-line 0.8s steps(24) backwards; animation-delay: calc(200ms + var(--i, 0) * 700ms); }
+
+/* ---------- Hero: papéis rotativos ---------- */
+.role { opacity: 0; translate: 0 10px; transition: opacity 0.4s, translate 0.4s; }
+.role[data-on='true'] { opacity: 1; translate: 0 0; }
+[data-fx='on'] .role { translate: none; clip-path: inset(0 100% 0 0); opacity: 1; transition: clip-path 0.5s steps(14); }
+[data-fx='on'] .role[data-on='true'] { clip-path: inset(0 0 0 0); transition-duration: 0.7s; transition-timing-function: steps(18); }
+
+/* ---------- Cursor piscando e flutuantes (FX) ---------- */
+@keyframes blink { 50% { opacity: 0; } }
+.caret { animation: blink 1.2s steps(1) infinite; }
+@keyframes float { to { transform: translateY(calc(var(--fy, -14px))) rotate(var(--fr, 8deg)); } }
+[data-fx='on'] .float { animation: float var(--fd, 3s) ease-in-out infinite alternate; }
+
+/* ---------- Cortina do modo FX ---------- */
+@keyframes curtain {
+  0% { clip-path: inset(100% 0 0 0); }
+  22%, 78% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 100% 0); }
+}
+@keyframes curtain-name {
+  0%, 32% { transform: translateY(110%); }
+  50%, 74% { transform: none; }
+  90%, 100% { transform: translateY(-110%); }
+}
+@keyframes curtain-bolt {
+  0% { transform: scale(0.2) rotate(-25deg); opacity: 0; }
+  30% { transform: scale(1.35) rotate(8deg); opacity: 1; }
+  38% { transform: scale(1) rotate(0); opacity: 1; }
+  42% { opacity: 0.2; } 46% { opacity: 1; } 50% { opacity: 0.4; } 54% { opacity: 1; }
+  74% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.6) translateY(-40px); opacity: 0; }
+}
+@keyframes curtain-sub { 0%, 45% { opacity: 0; } 55%, 74% { opacity: 0.8; } 82%, 100% { opacity: 0; } }
+
+/* ---------- Popover do dock ---------- */
+@keyframes pop-in { from { opacity: 0; transform: translateY(6px); } }
+@keyframes pop-in-fx { from { opacity: 0; transform: translateY(14px) scale(0.9); filter: blur(6px); } }
+.pop-card { animation: pop-in 0.2s var(--ease-out-expo); }
+[data-fx='on'] .pop-card { animation: pop-in-fx 0.42s var(--ease-out-expo); }
+
+/* ---------- Onda ao tocar (FX no celular) ---------- */
+@keyframes ripple { to { transform: scale(9); opacity: 0; } }
+.fx-ripple { position: fixed; z-index: 90; width: 20px; height: 20px; margin: -10px 0 0 -10px; border-radius: 50%; border: 2px solid var(--acc); background: color-mix(in oklch, var(--acc) 25%, transparent); pointer-events: none; animation: ripple 0.8s var(--ease-out-expo) forwards; }
+
+/* ---------- Bottom sheet mobile ---------- */
+@keyframes sheet-in { from { transform: translateY(100%); } }
+.sheet-in { animation: sheet-in 0.35s var(--ease-out-expo); }
+
+/* ---------- Troca de preview de projeto ---------- */
+@keyframes preview-in { from { opacity: 0.3; } }
+@keyframes preview-in-fx { from { clip-path: inset(0 0 0 100%); transform: scale(1.15); } }
+.preview-swap { animation: preview-in 0.3s var(--ease-out-expo); }
+[data-fx='on'] .preview-swap { animation: preview-in-fx 0.65s var(--ease-out-expo); }
+
+/* Cursor customizado só com FX + ponteiro fino */
+[data-fx='on'][data-cursor='custom'] * { cursor: none !important; }

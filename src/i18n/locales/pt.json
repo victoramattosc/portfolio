@@ -1,0 +1,142 @@
+{
+  "meta": { "title": "Victor Carbelotti — Dev Full-stack" },
+  "nav": {
+    "tabs": { "home": "início", "about": "sobre", "skills": "capacidades", "projects": "portfólio", "contact": "contato" },
+    "names": { "home": "Início", "about": "Sobre mim", "skills": "Capacidades", "projects": "Portfólio", "contact": "Contato" }
+  },
+  "hero": {
+    "available": "disponível para freelance",
+    "photoFile": "eu.jpg",
+    "hi": "// olá, meu nome é",
+    "roles": ["Dev Full-stack", "Programador", "Designer", "Técnico em Informática"],
+    "welcome": "Seja muito bem-vindo ao meu portifólio! Sinta-se a vontade para personalizar e customizar o site ao seu próprio gosto.",
+    "seeProjects": "ver projetos",
+    "resume": "baixar currículo",
+    "fxOn": "ligar modo FX",
+    "fxOff": "desligar modo FX",
+    "terminal": {
+      "fonts": "carregando fontes…",
+      "creativity": "criatividade",
+      "projects": "{{count}} projetos encontrados",
+      "done": "build concluído"
+    }
+  },
+  "about": {
+    "title": "Sobre mim",
+    "intro": "Meu nome é Victor Augusto de Mattos Carbelotti. Sempre fui interessado por tecnologia e programação e nos últimos quatro anos, tenho embarcado em uma jornada de aprendizado.",
+    "quote": "Apenas um homem comum tentando ser extraordinário.",
+    "resume": "Confira meu currículo",
+    "profile": {
+      "file": "perfil.json",
+      "born": "nascimento",
+      "age": "idade",
+      "education": "formação",
+      "educationValue": "Ciência da Computação · Unisagrado",
+      "city": "cidade"
+    },
+    "gitEducation": "educacao",
+    "gitExperience": "experiencia",
+    "education": [
+      { "date": "2024 — 2027", "title": "Bacharelado em Ciência da Computação", "text": "Unisagrado" },
+      { "date": "2021 — 2023", "title": "Técnico em Desenvolvimento de Sistemas", "text": "Etec Cidade do Livro" },
+      { "date": "2020 — 2021", "title": "Manutenção em Computadores e Celulares", "text": "CEBRAC" },
+      { "date": "2017 — 2021", "title": "Inglês · Avançado", "text": "CEBRAC" },
+      { "date": "2017 — 2018", "title": "Informática", "text": "CEBRAC" }
+    ],
+    "experience": [
+      {
+        "date": "11/2024 — atual",
+        "title": "Developer Jr. II",
+        "org": "Myog · Botdoc",
+        "points": [
+          "Liderança em deploys e entregas críticas garantindo releases estáveis.",
+          "Migração de módulos de monolito para microserviços.",
+          "Desenvolvimento de integrações com CRMs automotivos.",
+          "Implementação de carteiras digitais e processos de validação e crédito.",
+          "Otimização de endpoints e correção de falhas recorrentes em produção.",
+          "Desenvolvimento frontend, fluxogramas internos e colaboração com times internacionais em inglês."
+        ]
+      },
+      {
+        "date": "atual",
+        "title": "Técnico de TI & Infraestrutura",
+        "org": "InnovaTech",
+        "points": [
+          "Implementação e administração de infraestrutura de rede.",
+          "Configuração de VPN segura via WireGuard entre ambientes MikroTik.",
+          "Gerenciamento de firewall, roteamento, scripts e failover.",
+          "Manutenção corretiva e preventiva de hardware e software.",
+          "Suporte técnico presencial e remoto com ownership das soluções."
+        ]
+      },
+      {
+        "date": "01/2024 — 11/2024",
+        "title": "Suporte Técnico em Informática",
+        "org": "Ferragens São Carlos",
+        "points": [
+          "Suporte e manutenção de computadores, impressoras e rede.",
+          "Estruturação e padronização de infraestrutura de TI.",
+          "Desenvolvimento de página interna com dashboards e métricas.",
+          "Suporte a usuários em ambiente RDP.",
+          "Apoio ao setor de e-commerce na gestão e cadastro de produtos."
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Capacidades",
+    "hint": "// stack full-stack — aperte as teclas",
+    "services": { "frontend": "Front End", "backend": "Back End", "design": "Design", "office": "Pacote Office", "hardware": "Hardware", "network": "Redes" },
+    "levels": ["aprendendo", "básico", "confortável", "uso diário"],
+    "cats": { "front": "front", "back": "back", "data": "data", "infra": "infra" }
+  },
+  "projects": {
+    "title": "Portfólio",
+    "latest": "Meus últimos projetos :",
+    "openSite": "abrir site",
+    "open": "abrir ↗",
+    "noDeploy": "projeto sem deploy público",
+    "noDeployHost": "sem deploy público",
+    "items": {
+      "semFiltro": { "type": "site", "desc": "Projeto de extensão Unisagrado × Politize! que explica como funciona a política brasileira e ajuda a reconhecer fake news antes de acreditar nelas." },
+      "innovatech": { "type": "site", "desc": "Site institucional da InnovaTech: serviços de TI, atendimento, projetos, software e planos. Do hardware ao código." },
+      "eventPhotos": { "type": "web app", "desc": "App de fotos de festa com estética de filme 35mm. O admin cria o evento e gera um QR Code com token único; convidados escaneiam, são autenticados por cookie e usam câmera + galeria com upload para o Supabase Storage." },
+      "escritorIA": { "type": "SaaS", "desc": "SaaS de assistência editorial para escritores de ficção. A IA analisa capítulos, sugere e simula perfis de leitores sem reescrever o texto do autor. Planos com créditos, embeddings e pagamentos." },
+      "cityCare": { "type": "mobile", "desc": "App para o cidadão abrir e acompanhar ocorrências na cidade: login com JWT, mapa com autocomplete do Google Places, upload de imagens e atualizações em tempo real via WebSocket." },
+      "movieDB": { "type": "web app", "desc": "Gerenciador de filmes offline-first: CRUD com avaliação por estrelas, banco local reativo com RxDB e sincronização em tempo real com o backend Django via WebSocket." },
+      "pokedex": { "type": "web app", "desc": "Pokédex em Angular consumindo dados direto de uma API pública." },
+      "pruChurras": { "type": "app", "desc": "App web com navegação em abas, publicado na Vercel." },
+      "fightingGame": { "type": "jogo", "desc": "Jogo de luta 2D para dois jogadores rodando no navegador." }
+    }
+  },
+  "contact": {
+    "line1": "Entre em",
+    "line2": "contato",
+    "social": "Aqui estão algumas das minhas redes sociais",
+    "service": "ESTOU AOS SEUS SERVIÇOS",
+    "copy": "copiar",
+    "copied": "copiado!"
+  },
+  "settings": {
+    "menu": "Menu",
+    "fxHint": "efeitos, animações e cursor",
+    "theme": "tema",
+    "language": "Idioma",
+    "color": "Cor do tema",
+    "colors": { "lavanda": "Lavanda", "salvia": "Sálvia", "argila": "Argila" }
+  },
+  "palette": {
+    "placeholder": "buscar seção ou ação…",
+    "empty": "nada encontrado",
+    "goTo": "ir para",
+    "actions": "ações",
+    "fxOn": "Ligar modo FX",
+    "fxOff": "Desligar modo FX",
+    "lightTheme": "Tema claro",
+    "darkTheme": "Tema escuro",
+    "color": "Cor: {{name}}",
+    "switchLang": "Switch to English",
+    "copyEmail": "Copiar e-mail"
+  },
+  "fx": { "on": "> modo FX ligado", "off": "> modo FX desligado", "desktopHint": "(melhor no computador)", "label": "FX" }
+}
