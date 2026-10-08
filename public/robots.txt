@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://victorcarbelotti.innovatech.dev.br/sitemap.xml
