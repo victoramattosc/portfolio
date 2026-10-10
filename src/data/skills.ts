@@ -1,5 +1,5 @@
 import type { IconType } from 'react-icons';
-import { FaComputer, FaCode, FaLaptopCode, FaMicrosoft, FaPenRuler, FaWifi } from 'react-icons/fa6';
+import { FaComputer, FaCode, FaLaptopCode, FaDiagramProject, FaPenRuler, FaWifi } from 'react-icons/fa6';
 
 export type SkillCategory = 'front' | 'back' | 'data' | 'infra';
 /** 1 = aprendendo … 4 = uso diário (índice em `skills.levels`). */
@@ -48,7 +48,7 @@ export const services: { key: string; icon: IconType }[] = [
   { key: 'frontend', icon: FaLaptopCode },
   { key: 'backend', icon: FaCode },
   { key: 'design', icon: FaPenRuler },
-  { key: 'office', icon: FaMicrosoft },
+  { key: 'architecture', icon: FaDiagramProject },
   { key: 'hardware', icon: FaComputer },
   { key: 'network', icon: FaWifi },
 ];

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaKeyboard } from 'react-icons/fa6';
+import { useSettings } from '@/context/SettingsContext';
 import { services, skills, type SkillCategory, type SkillLevel } from '@/data/skills';
 import { clickFx } from '@/lib/clickFx';
 import { Reveal } from '@/components/ui/Reveal';
@@ -11,14 +12,15 @@ const FILTERS: (SkillCategory | 'all')[] = ['all', 'front', 'back', 'data', 'inf
 
 export function Skills() {
   const { t } = useTranslation();
+  const { fx } = useSettings();
   const [filter, setFilter] = useState<SkillCategory | 'all'>('all');
   const levels = t('skills.levels', { returnObjects: true }) as string[];
   const visible = filter === 'all' ? skills : skills.filter((s) => s.cat === filter);
   const count = (f: SkillCategory | 'all') => (f === 'all' ? skills.length : skills.filter((s) => s.cat === f).length);
 
-  const tap = (e: React.PointerEvent<HTMLElement>) => clickFx(e.currentTarget);
+  const tap = (e: React.PointerEvent<HTMLElement>) => fx && clickFx(e.currentTarget);
   const tapKey = (e: React.KeyboardEvent<HTMLElement>) => {
-    if (!e.repeat && (e.key === 'Enter' || e.key === ' ')) clickFx(e.currentTarget);
+    if (fx && !e.repeat && (e.key === 'Enter' || e.key === ' ')) clickFx(e.currentTarget);
   };
 
   return (
