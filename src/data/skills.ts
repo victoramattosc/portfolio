@@ -25,13 +25,23 @@ export const skills: Skill[] = [
   { name: 'PostgreSQL', cat: 'data', level: 3 },
   { name: 'MySQL', cat: 'data', level: 3 },
   { name: 'React Native', cat: 'front', level: 3 },
+  { name: 'Flutter', cat: 'front', level: 3 },
   { name: 'Ionic', cat: 'front', level: 3 },
   { name: 'Node.js', cat: 'back', level: 3 },
   { name: 'Java', cat: 'back', level: 3 },
+  { name: 'Spring Boot', cat: 'back', level: 3 },
   { name: 'Docker', cat: 'infra', level: 3 },
   { name: 'Supabase', cat: 'data', level: 3 },
   { name: 'RxDB', cat: 'data', level: 3 },
   { name: 'WebSocket', cat: 'back', level: 3 },
+  { name: 'Prisma', cat: 'data', level: 3 },
+  { name: 'Knex', cat: 'data', level: 3 },
+  { name: 'Redis', cat: 'data', level: 3 },
+  { name: 'Celery', cat: 'back', level: 3 },
+  { name: 'Cron', cat: 'back', level: 3 },
+  { name: 'Kubernetes', cat: 'infra', level: 2 },
+  { name: 'C#', cat: 'back', level: 2 },
+  { name: 'PHP', cat: 'back', level: 2 },
 ];
 
 export const services: { key: string; icon: IconType }[] = [

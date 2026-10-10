@@ -5,7 +5,7 @@ import { useSettings } from '@/context/SettingsContext';
 import { projects } from '@/data/projects';
 import { useResume } from '@/hooks/useResume';
 import { scrollToSection } from '@/data/sections';
-import { useCycle } from '@/hooks/useCycle';
+import { useTypewriter } from '@/hooks/useTypewriter';
 import { Logo } from '@/components/ui/Logo';
 import { PillButton, PillLink } from '@/components/ui/Pill';
 import { WindowDots } from '@/components/ui/WindowDots';
@@ -18,7 +18,7 @@ export function Hero() {
   const { fx, toggleFx } = useSettings();
   const resume = useResume();
   const roles = t('hero.roles', { returnObjects: true }) as string[];
-  const role = useCycle(roles.length, 2600);
+  const role = useTypewriter(roles);
 
   return (
     <section
@@ -40,10 +40,6 @@ export function Hero() {
         <button type="button" onClick={() => scrollToSection('inicio')} data-mag="" className="block leading-[0] max-[899px]:hidden" aria-label="Victor Carbelotti">
           <Logo className="block h-auto w-[clamp(52px,5vw,68px)]" />
         </button>
-        <div className="flex items-center gap-2.5 rounded-full border border-line bg-bg2 px-3.5 py-2 font-mono text-xs text-mute">
-          <span className="size-2 rounded-full bg-acc shadow-[0_0_0_4px_color-mix(in_oklch,var(--acc)_25%,transparent)]" />
-          {t('hero.available')}
-        </div>
       </header>
 
       <div className="relative z-[1] mx-auto flex w-full max-w-[1320px] flex-1 flex-col justify-center pt-[clamp(40px,6vw,64px)] pr-0 pb-[clamp(24px,4vw,40px)] pl-[clamp(8px,3vw,40px)]">
@@ -85,12 +81,12 @@ export function Hero() {
           <span className="text-acc">const</span>
           <span>role</span>
           <span className="text-mute">=</span>
-          <span className="inline-grid text-acc2" aria-live="off">
-            {roles.map((r, i) => (
-              <span key={r} data-on={i === role} aria-hidden={i !== role} className="role col-start-1 row-start-1 whitespace-nowrap">
-                "{r}"
-              </span>
-            ))}
+          <span className="text-acc2">
+            <span className="sr-only">{role.word}</span>
+            <span aria-hidden>
+              "{role.text}
+              <span className="caret inline-block h-[1em] w-[0.12em] translate-y-[0.15em] bg-acc2" />"
+            </span>
           </span>
           <span className="text-mute">;</span>
         </div>
@@ -177,8 +173,9 @@ function FloatingBadge({
 
 function Terminal({ projectCount }: { projectCount: number }) {
   const { t } = useTranslation();
-  const line = 'hero-line whitespace-nowrap';
+  const line = 'term-line whitespace-nowrap';
   const i = (n: number) => ({ '--i': n }) as React.CSSProperties;
+  const at = (s: number) => ({ '--t': s }) as React.CSSProperties;
   return (
     <div
       className="hero-in w-[min(100%,380px)] overflow-hidden rounded-xl border border-line bg-[color-mix(in_oklch,var(--bg2)_88%,transparent)] font-mono text-[12.5px] backdrop-blur-sm"
@@ -189,19 +186,23 @@ function Terminal({ projectCount }: { projectCount: number }) {
         zsh — victor@portfolio
       </div>
       <div className="flex flex-col gap-1.5 px-4 py-3.5 leading-[1.4]">
-        <div className={line} style={i(0)}>
+        <div className={line} style={at(0.5)}>
           <span className="text-acc">$</span> npm run build:victor
         </div>
-        <div className={`${line} text-mute`} style={i(1)}>
+        <div className={`${line} text-mute`} style={at(1.2)}>
           &gt; {t('hero.terminal.fonts')} ok
         </div>
-        <div className={`${line} text-mute`} style={i(2)}>
-          &gt; {t('hero.terminal.creativity')} ████████ 100%
+        <div className={`${line} flex items-center text-mute`} style={at(1.9)}>
+          <span>&gt; {t('hero.terminal.creativity')}</span>
+          <span aria-hidden className="term-bar mx-2 inline-block h-2.5 w-[8ch] overflow-hidden rounded-[3px]" style={at(2.5)}>
+            <i className="block size-full bg-acc" />
+          </span>
+          <span className="term-pct text-acc" style={at(2.5)} />
         </div>
-        <div className={`${line} text-mute`} style={i(3)}>
+        <div className={`${line} text-mute`} style={at(4.5)}>
           &gt; {t('hero.terminal.projects', { count: projectCount })}
         </div>
-        <div className={`${line} text-acc2`} style={i(4)}>
+        <div className={`${line} text-acc2`} style={at(5.2)}>
           ✓ {t('hero.terminal.done')}
           <span aria-hidden className="caret ml-1.5 inline-block h-3.5 w-[7px] bg-acc align-[-2px]" />
         </div>

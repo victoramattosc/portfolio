@@ -19,6 +19,8 @@ export interface Project {
 
 export const projects: Project[] = [
   { id: 'semFiltro', name: 'Sem Filtro', img: image('semFiltro'), site: 'https://semfiltro.innovatech.dev.br', stack: ['Web', 'Deploy'] },
+  { id: 'aqceacha', name: 'AqceAcha', img: image('aqceacha'), mobile: true, stack: ['React Native', 'Expo', 'TypeScript', 'Java', 'Spring Boot', 'JPA', 'MySQL', 'Flyway'] },
+  { id: 'cultivi', name: 'Cultivi', img: image('cultivi'), mobile: true, stack: ['Flutter', 'Dart', 'Riverpod', 'Django REST', 'PostgreSQL', 'JWT', 'Google Maps', 'Docker'] },
   { id: 'innovatech', name: 'InnovaTech', img: image('innovatech'), site: 'https://www.innovatech.dev.br', stack: ['Web', 'i18n PT/EN'] },
   { id: 'eventPhotos', name: 'Event Photos', img: image('eventPhotos'), stack: ['Next.js', 'React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind'] },
   { id: 'escritorIA', name: 'Escritor.IA', img: image('escritorIA'), stack: ['Django', 'DRF', 'PostgreSQL + pgvector', 'Groq · LLaMA', 'React', 'TypeScript', 'TipTap', 'Stripe', 'Docker'] },
@@ -26,5 +28,4 @@ export const projects: Project[] = [
   { id: 'movieDB', name: 'MovieDB', img: image('movieDB'), stack: ['React', 'RxDB', 'IndexedDB', 'Django REST', 'Channels · WebSocket', 'Docker'] },
   { id: 'pokedex', name: 'Pokédex Angular', img: image('pokedexAngular'), site: 'https://pokedex-angular-sigma.vercel.app', stack: ['Angular', 'TypeScript', 'REST API'] },
   { id: 'pruChurras', name: 'Pru Churras', img: image('pruChurras'), mobile: true, site: 'https://victoramattosc-pru-churras.vercel.app', stack: ['Ionic'] },
-  { id: 'fightingGame', name: 'Fighting Game', img: image('fightingGame'), site: 'https://victoramattosc-fighting-game.netlify.app', stack: ['JavaScript', 'Canvas'] },
 ];

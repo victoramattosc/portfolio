@@ -5,10 +5,9 @@
     "names": { "home": "Home", "about": "About me", "skills": "Capabilities", "projects": "Portfolio", "contact": "Contact" }
   },
   "hero": {
-    "available": "available for freelance",
     "photoFile": "me.jpg",
     "hi": "// hi, my name is",
-    "roles": ["Full-stack Dev", "Programmer", "Designer", "IT Technician"],
+    "roles": ["Full-stack Dev", "Designer", "IT Technician"],
     "welcome": "Welcome to my portfolio! Feel free to personalize and customize the site to your own taste.",
     "seeProjects": "see projects",
     "resume": "download resume",
@@ -95,6 +94,7 @@
   "projects": {
     "title": "Portfolio",
     "latest": "My latest projects :",
+    "more": "see more on GitHub",
     "openSite": "open site",
     "open": "open ↗",
     "noDeploy": "no public deploy",
@@ -104,11 +104,12 @@
       "innovatech": { "type": "site", "desc": "InnovaTech company site: IT services, support, projects, software and plans. From hardware to code." },
       "eventPhotos": { "type": "web app", "desc": "Party photo app with a 35mm film look. Admin creates an event and gets a QR code with a unique token; guests scan it, get cookie-authenticated and use a camera + gallery that uploads to Supabase Storage." },
       "escritorIA": { "type": "SaaS", "desc": "Editorial-assistant SaaS for fiction writers. AI analyzes chapters, suggests and simulates reader profiles without rewriting the author's text. Credit-based plans, embeddings and payments." },
+      "aqceacha": { "type": "mobile", "desc": "Mobile app connecting customers with local service providers: search, categories, business showcase and favorites. React Native + Expo front end and a REST API in Java with Spring Boot, JPA, MySQL and Flyway migrations." },
+      "cultivi": { "type": "mobile", "desc": "App to discover cultural venues in São Paulo — museums, theaters, libraries and parks: search with category filters, favorites, map and JWT login. Flutter front end with Riverpod and a Django REST API with PostgreSQL, image storage and Docker." },
       "cityCare": { "type": "mobile", "desc": "Citizen app to open and track city issues: JWT login, map with Google Places autocomplete, image uploads and real-time updates over WebSocket." },
       "movieDB": { "type": "web app", "desc": "Offline-first movie manager: CRUD with star ratings, reactive local DB with RxDB and real-time sync with a Django backend over WebSocket." },
       "pokedex": { "type": "web app", "desc": "Angular Pokédex pulling data straight from a public API." },
-      "pruChurras": { "type": "app", "desc": "Tab-based web app, deployed on Vercel." },
-      "fightingGame": { "type": "game", "desc": "2-player 2D fighting game running in the browser." }
+      "pruChurras": { "type": "app", "desc": "Tab-based web app, deployed on Vercel." }
     }
   },
   "contact": {

@@ -67,6 +67,9 @@
   :focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; border-radius: 4px; }
 }
 
+/* ---------- Seleção de texto na cor do tema ---------- */
+::selection { background: var(--acc); color: var(--ink); text-shadow: none; }
+
 /* ---------- Reveal on scroll (animado via Web Animations em useReveal) ---------- */
 [data-reveal]:not([data-revealed]) { opacity: 0; }
 @media (prefers-reduced-motion: reduce) {
@@ -84,11 +87,32 @@
 [data-fx='on'] .hero-big { animation: hero-big 1.2s var(--ease-out-expo) backwards; animation-delay: calc(350ms + var(--i, 0) * 160ms); }
 [data-fx='on'] .hero-line { animation: type-line 0.8s steps(24) backwards; animation-delay: calc(200ms + var(--i, 0) * 700ms); }
 
-/* ---------- Hero: papéis rotativos ---------- */
-.role { opacity: 0; translate: 0 10px; transition: opacity 0.4s, translate 0.4s; }
-.role[data-on='true'] { opacity: 1; translate: 0 0; }
-[data-fx='on'] .role { translate: none; clip-path: inset(0 100% 0 0); opacity: 1; transition: clip-path 0.5s steps(14); }
-[data-fx='on'] .role[data-on='true'] { clip-path: inset(0 0 0 0); transition-duration: 0.7s; transition-timing-function: steps(18); }
+/* ---------- Hero: terminal (linhas digitadas + barra de progresso) ---------- */
+@property --pct { syntax: '<integer>'; inherits: false; initial-value: 100; }
+@keyframes term-fill { from { transform: scaleX(0); } }
+@keyframes term-count { from { --pct: 0; } }
+.term-line { animation: type-line 0.55s steps(24) backwards; animation-delay: calc(var(--t, 0) * 1s); }
+.term-bar { background: color-mix(in oklch, var(--mute) 45%, transparent); }
+.term-bar > i { transform-origin: left; animation: term-fill 1.8s cubic-bezier(.45,.05,.35,1) backwards; animation-delay: calc(var(--t, 0) * 1s); }
+.term-pct { display: inline-block; min-width: 4ch; text-align: right; animation: term-count 1.8s cubic-bezier(.45,.05,.35,1) backwards; animation-delay: calc(var(--t, 0) * 1s); counter-reset: pct var(--pct); }
+.term-pct::after { content: counter(pct) '%'; }
+@media (prefers-reduced-motion: reduce) {
+  .term-line, .term-bar > i, .term-pct { animation: none; }
+}
+
+/* ---------- Teclas (skills): afundam ao clicar e voltam com um repique ---------- */
+.keycap {
+  --key-edge: var(--line);
+  margin-bottom: 6px;
+  box-shadow: 0 6px 0 var(--key-edge), inset 0 1px 0 color-mix(in oklch, var(--fg) 9%, transparent);
+  transition: translate 0.18s cubic-bezier(.3, 1.8, .5, 1), box-shadow 0.18s cubic-bezier(.3, 1.8, .5, 1), border-color 0.15s;
+}
+.keycap:hover { --key-edge: color-mix(in oklch, var(--acc) 55%, var(--bg)); border-color: var(--acc); }
+.keycap:active {
+  translate: 0 5px;
+  box-shadow: 0 1px 0 var(--key-edge), inset 0 1px 0 transparent;
+  transition-duration: 0.04s;
+}
 
 /* ---------- Cursor piscando e flutuantes (FX) ---------- */
 @keyframes blink { 50% { opacity: 0; } }

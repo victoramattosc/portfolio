@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaKeyboard } from 'react-icons/fa6';
-import { useSettings } from '@/context/SettingsContext';
 import { services, skills, type SkillCategory, type SkillLevel } from '@/data/skills';
-import { burst } from '@/lib/particles';
+import { clickFx } from '@/lib/clickFx';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 
@@ -12,16 +11,14 @@ const FILTERS: (SkillCategory | 'all')[] = ['all', 'front', 'back', 'data', 'inf
 
 export function Skills() {
   const { t } = useTranslation();
-  const { fx } = useSettings();
   const [filter, setFilter] = useState<SkillCategory | 'all'>('all');
   const levels = t('skills.levels', { returnObjects: true }) as string[];
   const visible = filter === 'all' ? skills : skills.filter((s) => s.cat === filter);
   const count = (f: SkillCategory | 'all') => (f === 'all' ? skills.length : skills.filter((s) => s.cat === f).length);
 
-  const sparks = (e: React.PointerEvent | React.KeyboardEvent) => {
-    if (!fx) return;
-    if (!('clientX' in e) && e.key !== 'Enter' && e.key !== ' ') return;
-    burst(e.currentTarget);
+  const tap = (e: React.PointerEvent<HTMLElement>) => clickFx(e.currentTarget);
+  const tapKey = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (!e.repeat && (e.key === 'Enter' || e.key === ' ')) clickFx(e.currentTarget);
   };
 
   return (
@@ -73,9 +70,9 @@ export function Skills() {
               key={s.name}
               index={i % 9}
               data-tilt=""
-              onPointerDown={sparks}
-              onKeyDown={sparks}
-              className="flex flex-col gap-4 rounded-[14px] border border-b-[6px] border-line bg-bg2 px-4 pt-4 pb-4 text-left transition-[border-color,translate,border-bottom-width] duration-150 hover:border-acc active:translate-y-1 active:border-b-2 sm:gap-[18px] sm:px-5 sm:pt-5 sm:pb-[18px]"
+              onPointerDown={tap}
+              onKeyDown={tapKey}
+              className="keycap flex flex-col gap-4 rounded-[14px] border border-line bg-bg2 px-4 pt-4 pb-4 text-left sm:gap-[18px] sm:px-5 sm:pt-5 sm:pb-[18px]"
             >
               <span className="flex flex-col gap-1">
                 <span className="font-mono text-[11px] text-acc">{t(`skills.cats.${s.cat}`)}</span>

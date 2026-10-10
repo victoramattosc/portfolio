@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaArrowUpRightFromSquare, FaLock } from 'react-icons/fa6';
+import { FaGithub } from 'react-icons/fa';
 import { FiArrowUpRight } from 'react-icons/fi';
+import { GITHUB_URL } from '@/data/profile';
 import { projects, type Project } from '@/data/projects';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { Reveal } from '@/components/ui/Reveal';
@@ -22,6 +24,18 @@ export function Projects() {
         {t('projects.latest')}
       </Reveal>
       {wide ? <ProjectsSplit /> : <ProjectsGrid />}
+      <Reveal className="mt-8 flex justify-center">
+        <a
+          href={GITHUB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2.5 rounded-full border border-line bg-bg2 px-5 py-2.5 font-mono text-[13px] text-fg transition-colors hover:border-acc hover:text-acc"
+        >
+          <FaGithub className="text-base" />
+          {t('projects.more')}
+          <FiArrowUpRight />
+        </a>
+      </Reveal>
     </section>
   );
 }
